@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 // import App from './App.vue'
 import DefaultSlot from './components/DefaultSlot.vue'
 import Stepper from './components/Stepper.vue'
+import StepperVuex from './components/StepperVuex.vue'
 import About from './components/About.vue'
 export const routes = [
   // {
@@ -18,6 +19,11 @@ export const routes = [
     path: '/stepper',
     name: 'Stepper',
     component: Stepper
+  },
+  {
+    path: '/stepper-vuex',
+    name: 'StepperVuex',
+    component: StepperVuex
   },
   {
     path: '/about',

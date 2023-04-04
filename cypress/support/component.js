@@ -18,6 +18,7 @@ import './commands';
 import { createMemoryHistory } from 'vue-router';
 import { createRouter } from 'vue-router';
 import { routes } from '../../src/routes';
+import { createStore } from "vuex";
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
@@ -29,7 +30,12 @@ import { mount } from 'cypress/vue';
 Cypress.Commands.add('mount', (component, options = {}) => {
   // Setup options object
   options.global = options.global || {};
+  options.global.stubs = options.global.stubs || {}
+  options.global.stubs['transition'] = false
+  options.global.components = options.global.components || {}
   options.global.plugins = options.global.plugins || [];
+
+  const { store = createStore(), ...mountOptions } = options
 
   // create router if one is not provided
   if (!options.router) {
@@ -42,6 +48,7 @@ Cypress.Commands.add('mount', (component, options = {}) => {
   // Add router plugin
   options.global.plugins.push({
     install(app) {
+      app.use(store)
       app.use(options.router);
     },
   });

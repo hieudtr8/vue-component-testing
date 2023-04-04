@@ -4,6 +4,7 @@
     <nav>
       <router-link to="/default-slot">Default Slot</router-link> |
       <router-link to="/stepper">Stepper</router-link> |
+      <router-link to="/stepper-vuex">Stepper Vuex</router-link> |
       <router-link to="/about">About</router-link> |
     </nav>
     <router-view />
