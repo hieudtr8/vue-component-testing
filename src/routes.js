@@ -1,0 +1,33 @@
+import { createRouter, createWebHistory } from 'vue-router'
+// import App from './App.vue'
+import DefaultSlot from './components/DefaultSlot.vue'
+import Stepper from './components/Stepper.vue'
+import About from './components/About.vue'
+export const routes = [
+  // {
+  //   path: '/',
+  //   name: 'Home',
+  //   // component: App
+  // },
+  {
+    path: '/default-slot',
+    name: 'DefaultSlot',
+    component: DefaultSlot
+  },
+  {
+    path: '/stepper',
+    name: 'Stepper',
+    component: Stepper
+  },
+  {
+    path: '/about',
+    name: 'About',
+    component: About
+  },
+]
+export const router = createRouter({
+  history: createWebHistory(),
+  routes: routes
+})
+
+export default router
